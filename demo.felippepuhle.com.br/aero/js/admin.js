@@ -1,1 +1,64 @@
-!function(t){t(document).ready(function(){t(".button-collapse").sideNav(),t(".input-field select").material_select(),t(".datepicker").pickadate({selectYears:20}),t(".slimscroll").each(function(){var a=t(this),e={};t.extend(e,a.data()),a.slimScroll(e)}),t(".modal").modal(),t("pre").each(function(){var a=t(this),e=a.children("code").eq(0);a.addClass("prettyprint"),a.addClass(e.attr("class")),a.attr("data-language",e.attr("class")),a.html(e.html().trim())}),t("pre").length>0&&prettyPrint()})}(jQuery);
+(function ($) {
+
+  /* -------- *
+   * DOM LOAD *
+   * -------- */
+	$(document).ready(function() {
+
+    /* ---------- *
+     * Mobile nav *
+     * ---------- */
+		$('.button-collapse').sideNav();
+
+
+		/* --------------- *
+     * Material select *
+     * --------------- */
+		$('.input-field select').material_select();
+
+
+		/* ---------- *
+     * Datepicker *
+     * ---------- */
+		$('.datepicker').pickadate({selectYears: 20});
+
+
+		/* ---------- *
+     * Slimscroll *
+     * ---------- */
+		$('.slimscroll').each(function() {
+			var jThis = $(this);
+
+			var options = {};
+			$.extend(options, jThis.data());
+
+			jThis.slimScroll(options);
+		});
+
+
+		/* ----- *
+     * Modal *
+     * ----- */
+		$('.modal').modal();
+
+
+		/* ------------ *
+     * Pretty Print *
+     * ------------ */
+		$('pre').each(function () {
+			var jPre = $(this);
+			var jCode = jPre.children('code').eq(0);
+
+			jPre.addClass('prettyprint');
+			jPre.addClass(jCode.attr('class'));
+			jPre.attr('data-language', jCode.attr('class'));
+
+			jPre.html(jCode.html().trim());
+		});
+		if ($('pre').length > 0) {
+			prettyPrint();
+		}
+
+	});
+
+}(jQuery));

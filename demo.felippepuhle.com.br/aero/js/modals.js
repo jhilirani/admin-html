@@ -1,1 +1,272 @@
-!function(o){o.Modal=function(n,e,t){n=n||"",e=e||"";var c={id:o.randomID(),fixedFooter:!1,closed:!1,dismissible:!0,opacity:.5,classes:{ok:"waves-effect waves-green btn-flat",cancel:"waves-effect waves-red btn-flat"},texts:{ok:"Ok",cancel:"Cancel"},hooks:{onShow:function(){},onClose:function(){},onOk:null,onCancel:null}},t=t||{};o.extend(c,t);var i=function(){var n="";n+='<div id="'+c.id+'" class="'+l()+'">',n+='\t<div class="modal-content">'+d()+"</div>",n+=a(),n+="</div>",o("body").append(n)},l=function(){var o="modal";return c.fixedFooter!==!1&&(o+=" modal-fixed-footer"),o},d=function(){var o="";return n.length>0&&(o+='<h4 id="title">'+n+"</h4>"),o+='<div id="content">'+e+"</div>"},a=function(){var o="";return null===c.hooks.onOk&&null===c.hooks.onCancel?o:(o+='<div class="modal-footer">',o+='   <a id="cancel" class="modal-action modal-close '+c.classes.cancel+'">'+c.texts.cancel+"</a>",o+='   <a id="ok" class="modal-action modal-close '+c.classes.ok+'">'+c.texts.ok+"</a>",o+="</div>")},s=function(){var n=o("#"+c.id),e=n.find("#ok"),t=n.find("#cancel");n.modal({dismissible:c.dismissible,opacity:c.opacity,ready:c.hooks.onShow,complete:c.hooks.onClose}),"function"==typeof c.hooks.onOk?(e.off("click"),e.on("click",function(o){c.hooks.onOk(o)})):e.attr("href",c.hooks.onOk),"function"==typeof c.hooks.onCancel?(t.off("click"),t.on("click",function(o){c.hooks.onCancel(o)})):t.attr("href",c.hooks.onCancel)},f=function(){var n=o("#"+c.id);n.modal("open")},u=function(){var n=o("#"+c.id);n.modal("close")},r=function(){var t=o("#"+c.id),i=t.find("#title"),l=t.find("#content");i.html(n),l.html(e),s()},k=function(o){n=o,r()},h=function(o){e=o,r()},v=function(n){o.extend(t,n),o.extend(c,t),r()},m=function(){return n},p=function(){return e},y=function(){return c};return i(),s(),c.closed===!1&&f(),{open:f,close:u,setTitle:k,setContent:h,setConfig:v,getTitle:m,getContent:p,getConfig:y}},o(document).ready(function(){o(document).on("click",".modal-trigger",function(){var n=o(this),e=n.data();"undefined"==typeof e.title&&(e.title=""),"undefined"==typeof e.content&&(e.content=""),"undefined"!=typeof e.content&&o.isValidSelector(e.content)&&(e.content=o(e.content).html()),"undefined"==typeof e.hooks&&(e.hooks={}),"undefined"!=typeof e.onshow&&(e.hooks.onShow=e.onshow),"undefined"!=typeof e.onclose&&(e.hooks.onClose=e.onclose),"undefined"!=typeof e.onok&&(e.hooks.onOk=e.onok),"undefined"!=typeof e.oncancel&&(e.hooks.onCancel=e.oncancel);o.Modal(e.title,e.content,e)})})}(jQuery);
+(function ($) {
+
+	/* ----- *
+     * Modal *
+     * ----- */
+    $.Modal = function (title, content, custom) {
+
+    	title = title || '';
+    	content = content || '';
+
+
+		  /* ------ *
+       * Config *
+       * ------ */
+      var config = {
+      	id: $.randomID(),
+      	fixedFooter: false,
+        closed: false,
+      	dismissible: true,
+      	opacity: .5,
+          classes: {
+          	ok: 'waves-effect waves-green btn-flat',
+          	cancel: 'waves-effect waves-red btn-flat'
+          },
+          texts: {
+          	ok: 'Ok',
+          	cancel: 'Cancel'
+          },
+          hooks: {
+          	onShow: function() { },
+          	onClose: function() { },
+          	onOk: null,
+          	onCancel: null
+          }
+      };
+
+      var custom = custom || {};
+      $.extend(config, custom);
+
+
+		  /* --------------- *
+       * Create the HTML *
+       * --------------- */
+      var createHTML = function() {
+        	var html = '';
+
+        	html += '<div id="' + config.id + '" class="' + generateModalClass() + '">';
+    			html += '	<div class="modal-content">' + generateModalContentHTML() + '</div>';
+    			html += generateModalFooterHTML();
+    			html += '</div>';
+
+    			$('body').append(html);
+        };
+
+        var generateModalClass = function() {
+        	var modalClass = 'modal';
+
+        	if(config.fixedFooter !== false) {
+        		modalClass += ' modal-fixed-footer';
+        	}
+
+        	return modalClass;
+        };
+
+        var generateModalContentHTML = function() {
+        	var contentHtml = '';
+
+        	if(title.length > 0) {
+        		contentHtml += '<h4 id="title">' + title + '</h4>';
+        	}
+
+          contentHtml += '<div id="content">' + content + '</div>';
+
+        	return contentHtml;
+        };
+
+        var generateModalFooterHTML = function() {
+        	var footerHtml = '';
+
+        	if(config.hooks.onOk === null && config.hooks.onCancel === null) {
+        		return footerHtml;
+        	}
+
+    			footerHtml += '<div class="modal-footer">';
+    			footerHtml += '   <a id="cancel" class="modal-action modal-close ' + config.classes.cancel + '">' + config.texts.cancel + '</a>';
+    			footerHtml += '   <a id="ok" class="modal-action modal-close ' + config.classes.ok + '">' + config.texts.ok + '</a>';
+    			footerHtml += '</div>';
+
+    			return footerHtml;
+        };
+
+
+		    /* --------------- *
+         * Apply listeners *
+         * --------------- */
+        var applyListeners = function() {
+        	var jModal = $('#' + config.id);
+        	var jOnOk = jModal.find('#ok');
+        	var jOnCancel = jModal.find('#cancel');
+
+          jModal.modal({
+            dismissible: config.dismissible,
+            opacity: config.opacity,
+            ready: config.hooks.onShow,
+            complete: config.hooks.onClose
+          });
+
+        	if(typeof config.hooks.onOk === 'function') {
+            jOnOk.off('click');
+        		jOnOk.on('click', function(event) {
+        			config.hooks.onOk(event);
+        		});
+        	} else {
+        		jOnOk.attr('href', config.hooks.onOk);
+        	}
+
+        	if(typeof config.hooks.onCancel === 'function') {
+            jOnCancel.off('click');
+        		jOnCancel.on('click', function(event) {
+        			config.hooks.onCancel(event);
+        		});
+        	} else {
+        		jOnCancel.attr('href', config.hooks.onCancel);
+        	}
+        };
+
+
+		    /* -------------------- *
+         * Open/close the modal *
+         * -------------------- */
+        var openModal = function() {
+        	var jModal = $('#' + config.id);
+
+        	jModal.modal('open');
+        };
+
+        var closeModal = function() {
+        	var jModal = $('#' + config.id);
+
+        	jModal.modal('close');
+        };
+
+
+        /* --------------------- *
+         * Dynamic configuration *
+         * --------------------- */
+        var updateModal = function() {
+            var jModal = $('#' + config.id);
+            var jTitle = jModal.find('#title');
+            var jContent = jModal.find('#content');
+
+            jTitle.html(title);
+            jContent.html(content);
+
+            applyListeners();
+        };
+
+
+        /* ------- *
+         * Setters *
+         * ------- */
+        var setTitle = function(parTitle) {
+            title = parTitle;
+
+            updateModal();
+        };
+
+        var setContent = function(parContent) {
+            content = parContent;
+
+            updateModal();
+        };
+
+        var setConfig = function(parCustom) {
+            $.extend(custom, parCustom);
+            $.extend(config, custom);
+
+            updateModal();
+        };
+
+
+        /* ------- *
+         * Getters *
+         * ------- */
+        var getTitle = function() {
+            return title;
+        };
+
+        var getContent = function() {
+            return content;
+        };
+
+        var getConfig = function() {
+            return config;
+        };
+
+
+		    /* ---------- *
+         * Initialize *
+         * ---------- */
+        createHTML();
+        applyListeners();
+        if(config.closed === false) {
+            openModal();
+        }
+
+
+        /* --- *
+         * API *
+         * --- */
+        return {
+            open: openModal,
+            close: closeModal,
+            setTitle: setTitle,
+            setContent: setContent,
+            setConfig: setConfig,
+            getTitle: getTitle,
+            getContent: getContent,
+            getConfig: getConfig
+        }
+    };
+
+
+    /* --------- *
+     * Listeners *
+     * --------- */
+    $(document).ready(function() {
+
+        /* ----------------------- *
+         * Open a new modal button *
+         * ----------------------- */
+        $(document).on('click', '.modal-trigger', function() {
+            var jTriggerButton = $(this);
+            var jConfig = jTriggerButton.data();
+
+            // Title
+            if(typeof jConfig.title === typeof undefined) {
+                jConfig.title = '';
+            }
+
+            // Content
+            if(typeof jConfig.content === typeof undefined) {
+                jConfig.content = '';
+            }
+            if(typeof jConfig.content !== typeof undefined && $.isValidSelector(jConfig.content)) {
+                jConfig.content = $(jConfig.content).html();
+            }
+
+            // Hooks
+            if(typeof jConfig.hooks === typeof undefined) {
+                jConfig.hooks = {};
+            }
+            if(typeof jConfig.onshow !== typeof undefined) {
+                jConfig.hooks.onShow = jConfig.onshow;
+            }
+            if(typeof jConfig.onclose !== typeof undefined) {
+                jConfig.hooks.onClose = jConfig.onclose;
+            }
+            if(typeof jConfig.onok !== typeof undefined) {
+                jConfig.hooks.onOk = jConfig.onok;
+            }
+            if(typeof jConfig.oncancel !== typeof undefined) {
+                jConfig.hooks.onCancel = jConfig.oncancel;
+            }
+
+            // Open modal
+            var modal = $.Modal(jConfig.title, jConfig.content, jConfig);
+        });
+
+    });
+
+}(jQuery));

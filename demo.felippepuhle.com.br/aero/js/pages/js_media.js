@@ -1,1 +1,17 @@
-!function(l){l(document).ready(function(){l(".slider").slider({full_width:!0}),l(".carousel.carousel-slider").carousel({full_width:!0}),l(".carousel").carousel()})}(jQuery);
+(function ($) {
+
+    /* -------- *
+     * DOM LOAD *
+     * -------- */
+	$(document).ready(function() {
+
+		// Slider
+		$('.slider').slider({full_width: true});
+
+		// Carousel
+		$('.carousel.carousel-slider').carousel({full_width: true});
+		$('.carousel').carousel();
+
+	});
+
+}(jQuery));
