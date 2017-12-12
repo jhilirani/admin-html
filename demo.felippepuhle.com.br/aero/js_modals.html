@@ -50,6 +50,10 @@
 	margin-left: 150px !important;
 	margin-top: -50px !important;
 }
+.leftDropDown{
+    margin-left: -150px !important;
+    margin-top: -50px !important;
+}
 </style>        
 <div id="nav-content">
             <nav>
@@ -196,9 +200,19 @@
                             </ul>
                             <ul id="dropdown-profile" class="dropdown-content">
                                 <li ><a href="profile.html">Profile</a></li>
+                                <li><a class="dropdown-button" href="#!" data-activates="settingsMenu">Settings</a></li>
                                 <li><a href="login.html">Logout</a></li>
                             </ul>
-
+                            <ul id='settingsMenu' class='dropdown-content leftDropDown'>
+                                <li><a  class="dropdown-button" href="#!" data-activates="generalMenu">General</a></li>
+                                <li><a class="truncate" href="#!">Privacy</a></li>
+                                <li><a class="truncate" href="#!">Languages</a></li>
+                            </ul>
+                            <ul id='generalMenu' class='dropdown-content leftDropDown'>
+                                <li><a class="truncate" href="#!">Name</a></li>
+                                <li><a class="truncate" href="#!">Phone</a></li>
+                                <li><a class="truncate" href="#!">Gender</a></li>
+                            </ul>
                             <!-- Mobile -->
                             <a href="#" data-activates="mobile-demo" class="button-collapse">
                                 <i class="material-icons">menu</i>
