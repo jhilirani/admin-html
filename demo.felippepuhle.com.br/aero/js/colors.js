@@ -1,1 +1,51 @@
-!function(e){var r=["light","dark"],n=["materialize-red","red","pink","purple","deep-purple","indigo","blue","light-blue","cyan","teal","green","light-green","lime","yellow","amber","orange","deep-orange","brown","grey","blue-grey"];e("body").prepend('<div id="alternativeColor" class="alternative hide"></div>'),e("body").prepend('<div id="mainColor" class="main hide"></div>'),e("body").prepend('<div id="themeColor" class="theme hide"></div>'),e.Colors=function(){return{themeColors:function(){return r},materialColors:function(){return n},theme:function(){return e("#themeColor").css("background-color")},main:function(){return e("#mainColor").css("background-color")},alternative:function(){return e("#alternativeColor").css("background-color")}}}}(jQuery);
+(function ($) {
+
+    /* ---------------------- *
+     * Available theme colors *
+     * ---------------------- */
+    var themeColors = [
+        'light', 'dark'
+    ];
+
+
+    /* ------------------------- *
+     * Available material colors *
+     * ------------------------- */
+    var materialColors = [
+        'materialize-red', 'red', 'pink', 'purple', 
+        'deep-purple', 'indigo', 'blue', 'light-blue', 
+        'cyan', 'teal', 'green', 'light-green',
+        'lime', 'yellow', 'amber', 'orange', 
+        'deep-orange', 'brown', 'grey', 'blue-grey'
+    ];
+
+
+    /* ------------------------------------------ *
+     * Append hidden elements to get theme colors *
+     * ------------------------------------------ */
+    $('body').prepend('<div id="alternativeColor" class="alternative hide"></div>');
+    $('body').prepend('<div id="mainColor" class="main hide"></div>');
+    $('body').prepend('<div id="themeColor" class="theme hide"></div>');
+
+
+    $.Colors = function () {
+        return {
+            themeColors: function() {
+                return themeColors;
+            },
+            materialColors: function() {
+                return materialColors;
+            },
+            theme: function () {
+                return $('#themeColor').css('background-color');
+            },
+            main: function () {
+                return $('#mainColor').css('background-color');
+            },
+            alternative: function () {
+                return $('#alternativeColor').css('background-color');
+            }
+        };
+    };
+
+}(jQuery));

@@ -1,483 +1,591 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<!-- Mirrored from demo.felippepuhle.com.br/aero/documentation.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 06 Oct 2017 14:57:28 GMT -->
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Documentation | Aero Admin</title>
-<meta name="author" content="">
+        <title>Documentation | Aero Admin</title>
+        <meta name="author" content="">
+        
+        <!-- ##### -->
+        <!-- Fonts -->
+        <!-- ##### -->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <!-- ################## -->
+        <!-- Global stylesheets -->
+        <!-- ################## -->
+        <link href="bower_components/Materialize/dist/css/materialize.css" rel="stylesheet" type="text/css" />
+        <link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+        <link href="bower_components/code-prettify/src/prettify.css" rel="stylesheet" type="text/css" />
+        <link href="css/admin.css" rel="stylesheet" type="text/css" />
+        <!-- ################# -->
+        <!-- Theme stylesheets -->
+        <!-- ################# -->
+        <link href="css/themes/light.css" id="ssThemeColor" rel="stylesheet" type="text/css" />
+        <link href="css/themes/main/materialize-red.css" id="ssMainColor" rel="stylesheet" type="text/css" />
+        <link href="css/themes/alternative/red.css" id="ssAlternativeColor" rel="stylesheet" type="text/css" />
+        <!-- ################ -->
+        <!-- Util stylesheets -->
+        <!-- ################ -->
+        <link href="css/theme-switcher.css" rel="stylesheet" type="text/css" />
+        <!-- ##### -->
+        <!-- Icons -->
+        <!-- ##### -->
+        <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    </head>
 
+    <body>
+        <!-- #### -->
+        <!-- Menu -->
+        <!-- #### -->
+<style>
+.dropdown-content {
+	min-width: 0;
+	min-height: 0;
+	overflow: visible !important;
+}
 
-
-<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-
-
-
-<link href="bower_components/Materialize/dist/css/materialize.css" rel="stylesheet" type="text/css" />
-<link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
-<link href="bower_components/code-prettify/src/prettify.css" rel="stylesheet" type="text/css" />
-<link href="css/admin.css" rel="stylesheet" type="text/css" />
-
-
-
-<link href="css/themes/light.css" id="ssThemeColor" rel="stylesheet" type="text/css" />
-<link href="css/themes/main/materialize-red.css" id="ssMainColor" rel="stylesheet" type="text/css" />
-<link href="css/themes/alternative/red.css" id="ssAlternativeColor" rel="stylesheet" type="text/css" />
-
-
-
-<link href="css/theme-switcher.css" rel="stylesheet" type="text/css" />
-
-
-
-<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-</head>
-<body>
-
-
-
+.secondDropDown,
+.thirdDropDown{
+	margin-left: 150px !important;
+	margin-top: -50px !important;
+}
+.leftDropDown{
+    margin-left: -150px !important;
+    margin-top: -50px !important;
+}
+</style>        
 <div id="nav-content">
-<nav>
-<div class="row">
-<div class="col s12">
+            <nav>
+                <div class="row">
+                    <div class="col s12">
+                        <!-- ############ -->
+                        <!-- Desktop Menu -->
+                        <!-- ############ -->
+                        <div class="nav-wrapper">
+                            <a href="index.html" class="brand-logo">
+                                <img src="img/logo.png"/>
+                                <span class="valign">
+                                    <b class="main-text">Aero</b> Admin
+                                </span>
+                            </a>
+
+                            <!-- Desktop -->
+                            <ul class="right hide-on-med-and-down">
+                                <li ><a href="index.html">Dashboard</a></li>
+
+                                <li class="active"><a href="documentation.html">Documentation</a></li>
+
+                                <li >
+                                    <a class="dropdown-button" href="#!" data-activates="dropdown-css" data-constrainwidth="false" data-beloworigin="true">
+                                        CSS<i class="material-icons dropdown-icon right">arrow_drop_down</i>
+                                    </a>
+                                </li>
+
+                                <li >
+                                    <a class="dropdown-button" href="#!" data-activates="dropdown-components" data-constrainwidth="false" data-beloworigin="true">
+                                        Components<i class="material-icons dropdown-icon right">arrow_drop_down</i>
+                                    </a>
+                                </li>
+
+                                <li >
+                                    <a class="dropdown-button" href="#!" data-activates="dropdown-javascript" data-constrainwidth="false" data-beloworigin="true">
+                                        Javascript<i class="material-icons dropdown-icon right">arrow_drop_down</i>
+                                    </a>
+                                </li>
+
+                                <li >
+                                    <a class="dropdown-button" href="#!" data-activates="dropdown-apps" data-constrainwidth="false" data-beloworigin="true">
+                                        APPs<i class="material-icons dropdown-icon right">arrow_drop_down</i>
+                                    </a>
+                                </li>
+
+                                <li >
+                                    <a class="dropdown-button" href="#!" data-activates="dropdown-pages" data-constrainwidth="false" data-beloworigin="true">
+                                        Pages<i class="material-icons dropdown-icon right">arrow_drop_down</i>
+                                    </a>
+                                </li>
+
+                                <li class="profile ">
+                                    <a class="dropdown-button" href="#!" data-activates="dropdown-profile" data-constrainwidth="false" data-beloworigin="true" data-alignment="right">
+                                        <div class="valign-wrapper">
+                                            <img src="img/profile.jpg" alt="My profile" class="circle responsive-img margin-right-10">
+                                            John Doe
+                                            <i class="material-icons dropdown-icon right">arrow_drop_down</i>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <!-- Dropdowns -->
+                            <ul id="dropdown-css" class="dropdown-content">
+                                <li >
+									<a class="dropdown-button" href="#!" data-activates="secondDRP">Color</a>
+								</li>
+                                <li ><a href="css_grid.html">Grid</a></li>
+                                <li ><a href="css_helpers.html">Helpers</a></li>
+                                <li ><a class="dropdown-button" href="#!" data-activates="secondMedia">Media</a></li>
+                                <li ><a href="css_sass.html">Sass</a></li>
+                                <li ><a href="css_shadow.html">Shadow</a></li>
+                                <li ><a href="css_table.html">Table</a></li>
+                                <li ><a href="css_typography.html">Typography</a></li>
+                            </ul>
+							<ul id='secondDRP' class='dropdown-content secondDropDown'>
+                                <li><a class="truncate dropdown-button" href="#!" data-activates="thirdDRP">Red</a></li>
+                                <li><a class="truncate" href="#!">Blue</a></li>
+                                <li><a class="truncate" href="#!">Green</a></li>
+                            </ul>
+                            <ul id='thirdDRP' class='dropdown-content thirdDropDown'>
+                                <li><a class="truncate" href="#!">Light Red</a></li>
+                                <li><a class="truncate" href="#!">Red</a></li>
+                                <li><a class="truncate" href="#!">Dark Red</a></li>
+                            </ul>
+                            <ul id='secondMedia' class='dropdown-content secondDropDown'>
+                                <li><a class="truncate dropdown-button" href="#!" data-activates="thirdMedia">Red</a></li>
+                                <li><a class="truncate" href="#!">Blue</a></li>
+                                <li><a class="truncate" href="#!">Green</a></li>
+                            </ul>
+                            <ul id='thirdMedia' class='dropdown-content thirdDropDown'>
+                                <li><a class="truncate" href="#!">Light Red</a></li>
+                                <li><a class="truncate" href="#!">Red</a></li>
+                                <li><a class="truncate" href="#!">Dark Red</a></li>
+                            </ul>
+                            <ul id="dropdown-components" class="dropdown-content">
+                                <li ><a href="components_badges.html">Badges</a></li>
+                                <li ><a href="components_buttons.html">Buttons</a></li>
+                                <li ><a href="components_breadcrumbs.html">Breadcrumbs</a></li>
+                                <li ><a href="components_cards.html">Cards</a></li>
+                                <li ><a href="components_chips.html">Chips</a></li>
+                                <li ><a href="components_collections.html">Collections</a></li>
+                                <li ><a href="components_footer.html">Footer</a></li>
+                                <li ><a href="components_forms.html">Forms</a></li>
+                                <li ><a href="components_icons.html">Icons</a></li>
+                                <li ><a href="components_navbar.html">Navbar</a></li>
+                                <li ><a href="components_pagination.html">Pagination</a></li>
+                                <li ><a href="components_preloader.html">Preloader</a></li>
+                            </ul>
+                            <ul id="dropdown-javascript" class="dropdown-content">
+                                <li ><a href="js_collapsible.html">Collapsible</a></li>
+                                <li ><a href="js_dialogs.html">Dialogs</a></li>
+                                <li ><a href="js_dropdown.html">Dropdown</a></li>
+                                <li ><a href="js_media.html">Media</a></li>
+                                <li ><a href="js_modals.html">Modals</a></li>
+                                <li ><a href="js_parallax.html">Parallax</a></li>
+                                <li ><a href="js_pushpin.html">Pushpin</a></li>
+                                <li ><a href="js_scrollfire.html">ScrollFire</a></li>
+                                <li ><a href="js_scrollspy.html">Scrollspy</a></li>
+                                <li ><a href="js_sidenav.html">SideNav</a></li>
+                                <li ><a href="js_tabs.html">Tabs</a></li>
+                                <li ><a href="js_transitions.html">Transitions</a></li>
+                                <li ><a href="js_waves.html">Waves</a></li>
+                            </ul>
+                            <ul id="dropdown-apps" class="dropdown-content">
+                                <li ><a href="apps_crud.html">CRUD</a></li>
+                                <li ><a href="apps_pricing_table.html">Pricing Table</a></li>
+                                <li ><a href="apps_datatables.html">DataTables</a></li>
+                                <li ><a href="apps_maps.html">Maps</a></li>
+                                <li ><a href="apps_charts.html">Charts</a></li>
+                            </ul>
+                            <ul id="dropdown-pages" class="dropdown-content">
+                                <li ><a href="pages_blank.html">Blank</a></li>
+                                <li class="divider"></li>
+                                <li><a href="login.html">Login</a></li>
+                                <li><a href="register.html">Register</a></li>
+                                <li><a href="forgot_password.html">Forgot Password</a></li>
+                                <li class="divider"></li>
+                                <li><a href="error_400.html">Error 400</a></li>
+                                <li><a href="error_403.html">Error 403</a></li>
+                                <li><a href="error_404.html">Error 404</a></li>
+                                <li><a href="error_500.html">Error 500</a></li>
+                            </ul>
+                            <ul id="dropdown-profile" class="dropdown-content">
+                                <li ><a href="profile.html">Profile</a></li>
+                                <li><a class="dropdown-button" href="#!" data-activates="settingsMenu">Settings</a></li>
+                                <li><a href="login.html">Logout</a></li>
+                            </ul>
+                            <ul id='settingsMenu' class='dropdown-content leftDropDown'>
+                                <li><a  class="dropdown-button" href="#!" data-activates="generalMenu">General</a></li>
+                                <li><a class="truncate" href="#!">Privacy</a></li>
+                                <li><a class="truncate" href="#!">Languages</a></li>
+                            </ul>
+                            <ul id='generalMenu' class='dropdown-content leftDropDown'>
+                                <li><a class="truncate" href="#!">Name</a></li>
+                                <li><a class="truncate" href="#!">Phone</a></li>
+                                <li><a class="truncate" href="#!">Gender</a></li>
+                            </ul>
+                            <!-- Mobile -->
+                            <a href="#" data-activates="mobile-demo" class="button-collapse">
+                                <i class="material-icons">menu</i>
+                            </a>
+                        </div>
+
+
+                        <!-- ########### -->
+                        <!-- Mobile Menu -->
+                        <!-- ########### -->
+                        <ul class="side-nav" id="mobile-demo">
+                            <li class="logo">
+                                <img src="img/logo.png"/>
+                                <p>
+                                    <b class="main-text">Aero</b> Admin
+                                </p>
+                            </li>
+
+                            <li>
+                                <a href="index.html" class="waves-effect">Dashboard</a>
+                            </li>
+
+                            <li class="padding-0">
+                                <ul class="collapsible collapsible-accordion">
+                                    <li class="bold">
+                                        <a class="collapsible-header waves-effect">CSS</a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li><a href="css_color.html">Color</a></li>
+                                                <li><a href="css_grid.html">Grid</a></li>
+                                                <li><a href="css_helpers.html">Helpers</a></li>
+                                                <li><a href="css_media.html">Media</a></li>
+                                                <li><a href="css_sass.html">Sass</a></li>
+                                                <li><a href="css_shadow.html">Shadow</a></li>
+                                                <li><a href="css_table.html">Table</a></li>
+                                                <li><a href="css_typography.html">Typography</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="bold">
+                                        <a class="collapsible-header waves-effect">Components</a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li><a href="components_badges.html">Badges</a></li>
+                                                <li><a href="components_buttons.html">Buttons</a></li>
+                                                <li><a href="components_breadcrumbs.html">Breadcrumbs</a></li>
+                                                <li><a href="components_cards.html">Cards</a></li>
+                                                <li><a href="components_chips.html">Chips</a></li>
+                                                <li><a href="components_collections.html">Collections</a></li>
+                                                <li><a href="components_footer.html">Footer</a></li>
+                                                <li><a href="components_forms.html">Forms</a></li>
+                                                <li><a href="components_icons.html">Icons</a></li>
+                                                <li><a href="components_navbar.html">Navbar</a></li>
+                                                <li><a href="components_pagination.html">Pagination</a></li>
+                                                <li><a href="components_preloader.html">Preloader</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="bold">
+                                        <a class="collapsible-header waves-effect">JavaScript</a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li><a href="js_collapsible.html">Collapsible</a></li>
+                                                <li><a href="js_dialogs.html">Dialogs</a></li>
+                                                <li><a href="js_dropdown.html">Dropdown</a></li>
+                                                <li><a href="js_media.html">Media</a></li>
+                                                <li><a href="js_modals.html">Modals</a></li>
+                                                <li><a href="js_parallax.html">Parallax</a></li>
+                                                <li><a href="js_pushpin.html">Pushpin</a></li>
+                                                <li><a href="js_scrollfire.html">ScrollFire</a></li>
+                                                <li><a href="js_scrollspy.html">Scrollspy</a></li>
+                                                <li><a href="js_sidenav.html">SideNav</a></li>
+                                                <li><a href="js_tabs.html">Tabs</a></li>
+                                                <li><a href="js_transitions.html">Transitions</a></li>
+                                                <li><a href="js_waves.html">Waves</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="bold">
+                                        <a class="collapsible-header waves-effect">APPs</a>
+                                        <div class="collapsible-body">
+                                            <ul>
+                                                <li><a href="apps_crud.html">CRUD</a></li>
+                                                <li><a href="apps_pricing_table.html">Pricing Table</a></li>
+                                                <li><a href="app_datatables.html">Datatables</a></li>
+                                                <li><a href="app_maps.html">Maps</a></li>
+                                                <li><a href="app_charts.html">Charts</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
 
 
 
-<div class="nav-wrapper">
-<a href="index-2.html" class="brand-logo">
-<img src="img/logo.png" />
-<span class="valign">
-<b class="main-text">Aero</b> Admin
-</span>
-</a>
+        <!-- ####### -->
+        <!-- Content -->
+        <!-- ####### -->
+        <main>
+            <div class="main-content">
+                <!-- ###### -->
+                <!-- Header -->
+                <!-- ###### -->
+				<div class="row">
+				    <div class="col s12">
+				        <div class="page-header">
+				            <h1>
+				                <i class="material-icons">live_help</i> Documentation
+				            </h1>
 
-<ul class="right hide-on-med-and-down">
-<li><a href="index-2.html">Dashboard</a></li>
-<li class="active"><a href="documentation.html">Documentation</a></li>
-<li>
-<a class="dropdown-button" href="#!" data-activates="dropdown-css" data-constrainwidth="false" data-beloworigin="true">
-CSS<i class="material-icons dropdown-icon right">arrow_drop_down</i>
-</a>
-</li>
-<li>
-<a class="dropdown-button" href="#!" data-activates="dropdown-components" data-constrainwidth="false" data-beloworigin="true">
-Components<i class="material-icons dropdown-icon right">arrow_drop_down</i>
-</a>
-</li>
-<li>
-<a class="dropdown-button" href="#!" data-activates="dropdown-javascript" data-constrainwidth="false" data-beloworigin="true">
-Javascript<i class="material-icons dropdown-icon right">arrow_drop_down</i>
-</a>
-</li>
-<li>
-<a class="dropdown-button" href="#!" data-activates="dropdown-apps" data-constrainwidth="false" data-beloworigin="true">
- APPs<i class="material-icons dropdown-icon right">arrow_drop_down</i>
-</a>
-</li>
-<li>
-<a class="dropdown-button" href="#!" data-activates="dropdown-pages" data-constrainwidth="false" data-beloworigin="true">
-Pages<i class="material-icons dropdown-icon right">arrow_drop_down</i>
-</a>
-</li>
-<li class="profile ">
-<a class="dropdown-button" href="#!" data-activates="dropdown-profile" data-constrainwidth="false" data-beloworigin="true" data-alignment="right">
-<div class="valign-wrapper">
-<img src="img/profile.jpg" alt="My profile" class="circle responsive-img margin-right-10">
-John Doe
-<i class="material-icons dropdown-icon right">arrow_drop_down</i>
-</div>
-</a>
-</li>
-</ul>
-
-<ul id="dropdown-css" class="dropdown-content">
-<li><a href="css_color.html">Color</a></li>
-<li><a href="css_grid.html">Grid</a></li>
-<li><a href="css_helpers.html">Helpers</a></li>
-<li><a href="css_media.html">Media</a></li>
-<li><a href="css_sass.html">Sass</a></li>
-<li><a href="css_shadow.html">Shadow</a></li>
-<li><a href="css_table.html">Table</a></li>
-<li><a href="css_typography.html">Typography</a></li>
-</ul>
-<ul id="dropdown-components" class="dropdown-content">
-<li><a href="components_badges.html">Badges</a></li>
-<li><a href="components_buttons.html">Buttons</a></li>
-<li><a href="components_breadcrumbs.html">Breadcrumbs</a></li>
-<li><a href="components_cards.html">Cards</a></li>
-<li><a href="components_chips.html">Chips</a></li>
-<li><a href="components_collections.html">Collections</a></li>
-<li><a href="components_footer.html">Footer</a></li>
-<li><a href="components_forms.html">Forms</a></li>
-<li><a href="components_icons.html">Icons</a></li>
-<li><a href="components_navbar.html">Navbar</a></li>
-<li><a href="components_pagination.html">Pagination</a></li>
-<li><a href="components_preloader.html">Preloader</a></li>
-</ul>
-<ul id="dropdown-javascript" class="dropdown-content">
-<li><a href="js_collapsible.html">Collapsible</a></li>
-<li><a href="js_dialogs.html">Dialogs</a></li>
-<li><a href="js_dropdown.html">Dropdown</a></li>
-<li><a href="js_media.html">Media</a></li>
-<li><a href="js_modals.html">Modals</a></li>
-<li><a href="js_parallax.html">Parallax</a></li>
-<li><a href="js_pushpin.html">Pushpin</a></li>
-<li><a href="js_scrollfire.html">ScrollFire</a></li>
-<li><a href="js_scrollspy.html">Scrollspy</a></li>
- <li><a href="js_sidenav.html">SideNav</a></li>
-<li><a href="js_tabs.html">Tabs</a></li>
-<li><a href="js_transitions.html">Transitions</a></li>
-<li><a href="js_waves.html">Waves</a></li>
-</ul>
-<ul id="dropdown-apps" class="dropdown-content">
-<li><a href="apps_crud.html">CRUD</a></li>
-<li><a href="apps_pricing_table.html">Pricing Table</a></li>
-<li><a href="apps_datatables.html">DataTables</a></li>
-<li><a href="apps_maps.html">Maps</a></li>
-<li><a href="apps_charts.html">Charts</a></li>
-</ul>
-<ul id="dropdown-pages" class="dropdown-content">
-<li><a href="pages_blank.html">Blank</a></li>
-<li class="divider"></li>
-<li><a href="login.html">Login</a></li>
-<li><a href="register.html">Register</a></li>
-<li><a href="forgot_password.html">Forgot Password</a></li>
-<li class="divider"></li>
-<li><a href="error_400.html">Error 400</a></li>
-<li><a href="error_403.html">Error 403</a></li>
-<li><a href="error_404.html">Error 404</a></li>
-<li><a href="error_500.html">Error 500</a></li>
-</ul>
-<ul id="dropdown-profile" class="dropdown-content">
-<li><a href="profile.html">Profile</a></li>
-<li><a href="login.html">Logout</a></li>
-</ul>
-
-<a href="#" data-activates="mobile-demo" class="button-collapse">
-<i class="material-icons">menu</i>
-</a>
-</div>
+				            <p>Instructions and tips of how to use and customize in your own way.</p>
+				        </div>
+				    </div>
+				</div>
+                
+                
+                <!-- #### -->
+                <!-- Body -->
+                <!-- #### -->
+				<section id="documentation">
+					<div class="row">
+						<div class="col s12 m9 l10">
+							<!-- ############ -->
+							<!-- Introduction -->
+							<!-- ############ -->
+							<div id="introduction" class="scrollspy">
+								<div class="row no-gutter">
+									<div class="col s12">
+										<h4 class="main-text lighten-1">Aero Admin v1.0.5</h4>
+										<p>Thank you for purchasing my theme.</p>
+										<p>If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/lippep">here</a>.</p>
+										<p>Thanks so much!</p>
+									</div>
+								</div>
+							</div>
 
 
+							<!-- ############ -->
+							<!-- Installation -->
+							<!-- ############ -->
+							<div id="instalation" class="scrollspy margin-top-35">
+								<div class="row no-gutter">
+									<div class="col s12">
+										<h4 class="main-text lighten-1">Installation</h4>
+										<p>This theme was built using many technologies as possible, like NPM and Bower.</p>
 
-<ul class="side-nav" id="mobile-demo">
-<li class="logo">
-<img src="img/logo.png" />
-<p>
-<b class="main-text">Aero</b> Admin
-</p>
-</li>
-<li>
-<a href="index-2.html" class="waves-effect">Dashboard</a>
-</li>
-<li class="padding-0">
-<ul class="collapsible collapsible-accordion">
-<li class="bold">
-<a class="collapsible-header waves-effect">CSS</a>
-<div class="collapsible-body">
-<ul>
-<li><a href="css_color.html">Color</a></li>
-<li><a href="css_grid.html">Grid</a></li>
-<li><a href="css_helpers.html">Helpers</a></li>
-<li><a href="css_media.html">Media</a></li>
-<li><a href="css_sass.html">Sass</a></li>
-<li><a href="css_shadow.html">Shadow</a></li>
-<li><a href="css_table.html">Table</a></li>
-<li><a href="css_typography.html">Typography</a></li>
- </ul>
-</div>
-</li>
-<li class="bold">
-<a class="collapsible-header waves-effect">Components</a>
-<div class="collapsible-body">
-<ul>
-<li><a href="components_badges.html">Badges</a></li>
-<li><a href="components_buttons.html">Buttons</a></li>
-<li><a href="components_breadcrumbs.html">Breadcrumbs</a></li>
-<li><a href="components_cards.html">Cards</a></li>
-<li><a href="components_chips.html">Chips</a></li>
-<li><a href="components_collections.html">Collections</a></li>
-<li><a href="components_footer.html">Footer</a></li>
-<li><a href="components_forms.html">Forms</a></li>
-<li><a href="components_icons.html">Icons</a></li>
-<li><a href="components_navbar.html">Navbar</a></li>
-<li><a href="components_pagination.html">Pagination</a></li>
-<li><a href="components_preloader.html">Preloader</a></li>
-</ul>
-</div>
-</li>
-<li class="bold">
-<a class="collapsible-header waves-effect">JavaScript</a>
-<div class="collapsible-body">
-<ul>
-<li><a href="js_collapsible.html">Collapsible</a></li>
-<li><a href="js_dialogs.html">Dialogs</a></li>
-<li><a href="js_dropdown.html">Dropdown</a></li>
-<li><a href="js_media.html">Media</a></li>
-<li><a href="js_modals.html">Modals</a></li>
-<li><a href="js_parallax.html">Parallax</a></li>
-<li><a href="js_pushpin.html">Pushpin</a></li>
-<li><a href="js_scrollfire.html">ScrollFire</a></li>
-<li><a href="js_scrollspy.html">Scrollspy</a></li>
-<li><a href="js_sidenav.html">SideNav</a></li>
-<li><a href="js_tabs.html">Tabs</a></li>
-<li><a href="js_transitions.html">Transitions</a></li>
-<li><a href="js_waves.html">Waves</a></li>
-</ul>
-</div>
-</li>
-<li class="bold">
-<a class="collapsible-header waves-effect">APPs</a>
-<div class="collapsible-body">
-<ul>
-<li><a href="apps_crud.html">CRUD</a></li>
-<li><a href="apps_pricing_table.html">Pricing Table</a></li>
-<li><a href="app_datatables.html">Datatables</a></li>
-<li><a href="app_maps.html">Maps</a></li>
- <li><a href="app_charts.html">Charts</a></li>
-</ul>
-</div>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</nav>
-</div>
+										<h5 class="margin-top-35">Installing NPM</h5>
+										<p>NPM is the package manager for JavaScript.</p>
+										<p>Follow <a href="https://docs.npmjs.com/getting-started/installing-node">this tutorial</a> to install NPM into your computer.</p>
+
+										<h5 class="margin-top-35">Installing Bower</h5>
+										<p>Web sites are made of lots of things — frameworks, libraries, assets, and utilities. Bower manages all these things for you.</p>
+										<p>Follow <a href="http://bower.io/#install-bower">this tutorial</a> to install Bower into your computer.</p>
+
+										<div class="card-panel alternative lighten-1 margin-top-35">
+											<b><u>PS</u>:</b> If you're using Windows, don't forget to add <u>Bower</u> and <u>NPM</u> to your <b>environment variables</b>!
+										</div>
+
+										<h5 class="margin-top-35">Downloading the plugins</h5>
+										<p>Open the console in the app folder, and type <code>bower install</code>. Wait a few minutes and all the plugins will be downloaded.</p>
+										<img src="img/documentation/bower-install.png" alt="Downloading Bower dependencies">
+										<p>After that, we must install the npm dependencies typing <code>npm install</code>. Wait until the download finish to continue.</p>
+										<img src="img/documentation/npm-install.png" alt="Downloading NPM dependencies">
+
+										<h5 class="margin-top-35">Processing SASS</h5>
+										<p>All done, let's generate the CSS. Just type <code>npm run gulp</code> in the console. After every little change in any <b>.scss</b> file you'll have to do this step again. </p>
+										<img src="img/documentation/npm-run-gulp.png" alt="Generating CSS">
+									</div>
+								</div>
+							</div>
 
 
+							<!-- ################## -->
+							<!-- Template Structure -->
+							<!-- ################## -->
+							<div id="template-structure" class="scrollspy margin-top-50">
+								<div class="row no-gutter">
+									<div class="col s12">
+										<h4 class="main-text lighten-1">Template Structure</h4>
+										<p>This theme is a fixed layout with one column. </p>
 
-<main>
-<div class="main-content">
+										<h5 class="margin-top-35">Header</h5>
+										<p>You can use the tag <code>nav</code> to mount your own menu.</p>
+										<img src="img/documentation/html-menu.png" alt="Menu HTML">
 
+										<h5 class="margin-top-35">Content</h5>
+										<p>The content goes into a <code>div</code> with <code>class="main-content"</code>, inside the <code>main</code> tag.</p>
+										<p>Add the <code>no-gutter</code> class if you want to decrease the content padding.</p>
+										<img src="img/documentation/html-content.png" alt="Content HTML">
 
+										<h5 class="margin-top-35">Footer</h5>
+										<p>The footer inside the <code>footer</code> tag.</p>
+										<p><img src="img/documentation/html-footer.png" alt="Footer HTML"></p>
 
-<div class="row">
-<div class="col s12">
-<div class="page-header">
-<h1>
-<i class="material-icons">live_help</i> Documentation
-</h1>
-<p>Instructions and tips of how to use and customize in your own way.</p>
-</div>
-</div>
-</div>
+										<h5 class="margin-top-35">Stylesheet files</h5>
+										<p>The CSS files are imported into the <code>head</code> tag, and are splitted into 4 groups:</p>
+										<ul>
+											<li><b>Global:</b> framework files</li>
+											<li><b>Theme:</b> theme files (dark/light, main and alternative colors)</li>
+											<li><b>Util:</b> utility files (like theme switcher)</li>
+											<li><b>Page:</b> files used only in current page</li>
+										</ul>
+										<img src="img/documentation/html-css.png" alt="Stylesheet files">
 
-
-
-<section id="documentation">
-<div class="row">
-<div class="col s12 m9 l10">
-
-
-
-<div id="introduction" class="scrollspy">
-<div class="row no-gutter">
-<div class="col s12">
-<h4 class="main-text lighten-1">Aero Admin v1.0.5</h4>
-<p>Thank you for purchasing my theme.</p>
-<p>If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://themeforest.net/user/lippep">here</a>.</p>
-<p>Thanks so much!</p>
-</div>
-</div>
-</div>
-
-
-
-<div id="instalation" class="scrollspy margin-top-35">
-<div class="row no-gutter">
-<div class="col s12">
-<h4 class="main-text lighten-1">Installation</h4>
-<p>This theme was built using many technologies as possible, like NPM and Bower.</p>
-<h5 class="margin-top-35">Installing NPM</h5>
-<p>NPM is the package manager for JavaScript.</p>
-<p>Follow <a href="https://docs.npmjs.com/getting-started/installing-node">this tutorial</a> to install NPM into your computer.</p>
-<h5 class="margin-top-35">Installing Bower</h5>
-<p>Web sites are made of lots of things — frameworks, libraries, assets, and utilities. Bower manages all these things for you.</p>
-<p>Follow <a href="http://bower.io/#install-bower">this tutorial</a> to install Bower into your computer.</p>
-<div class="card-panel alternative lighten-1 margin-top-35">
-<b><u>PS</u>:</b> If you're using Windows, don't forget to add <u>Bower</u> and <u>NPM</u> to your <b>environment variables</b>!
-</div>
-<h5 class="margin-top-35">Downloading the plugins</h5>
-<p>Open the console in the app folder, and type <code>bower install</code>. Wait a few minutes and all the plugins will be downloaded.</p>
-<img src="img/documentation/bower-install.png" alt="Downloading Bower dependencies">
-<p>After that, we must install the npm dependencies typing <code>npm install</code>. Wait until the download finish to continue.</p>
-<img src="img/documentation/npm-install.png" alt="Downloading NPM dependencies">
-<h5 class="margin-top-35">Processing SASS</h5>
-<p>All done, let's generate the CSS. Just type <code>npm run gulp</code> in the console. After every little change in any <b>.scss</b> file you'll have to do this step again. </p>
-<img src="img/documentation/npm-run-gulp.png" alt="Generating CSS">
-</div>
-</div>
-</div>
+										<h5 class="margin-top-35">Javascript files</h5>
+										<p>The JS files are imported in the end of the <code>body</code> tag, and are splitted into 4 groups:</p>
+										<ul>
+											<li><b>Global:</b> framework files</li>
+											<li><b>Theme:</b> theme files (dark/light, main and alternative colors)</li>
+											<li><b>Util:</b> utility files (like theme switcher)</li>
+											<li><b>Page:</b> files used only in current page</li>
+										</ul>
+										<img src="img/documentation/html-js.png" alt="Javascript files">
+									</div>
+								</div>
+							</div>
 
 
+							<!-- ################### -->
+							<!-- Sources and Credits -->
+							<!-- ################### -->
+							<div id="sources-and-credits" class="scrollspy margin-top-50">
+								<div class="row no-gutter margin-bottom-0">
+									<div class="col s12">
+										<h4 class="main-text lighten-1">Sources and Credits</h4>
+										<p>I've used the following images, icons or other files as listed.</p>
 
-<div id="template-structure" class="scrollspy margin-top-50">
-<div class="row no-gutter">
-<div class="col s12">
-<h4 class="main-text lighten-1">Template Structure</h4>
-<p>This theme is a fixed layout with one column. </p>
-<h5 class="margin-top-35">Header</h5>
-<p>You can use the tag <code>nav</code> to mount your own menu.</p>
-<img src="img/documentation/html-menu.png" alt="Menu HTML">
-<h5 class="margin-top-35">Content</h5>
-<p>The content goes into a <code>div</code> with <code>class="main-content"</code>, inside the <code>main</code> tag.</p>
-<p>Add the <code>no-gutter</code> class if you want to decrease the content padding.</p>
-<img src="img/documentation/html-content.png" alt="Content HTML">
-<h5 class="margin-top-35">Footer</h5>
-<p>The footer inside the <code>footer</code> tag.</p>
-<p><img src="img/documentation/html-footer.png" alt="Footer HTML"></p>
-<h5 class="margin-top-35">Stylesheet files</h5>
-<p>The CSS files are imported into the <code>head</code> tag, and are splitted into 4 groups:</p>
-<ul>
-<li><b>Global:</b> framework files</li>
-<li><b>Theme:</b> theme files (dark/light, main and alternative colors)</li>
-<li><b>Util:</b> utility files (like theme switcher)</li>
-<li><b>Page:</b> files used only in current page</li>
-</ul>
-<img src="img/documentation/html-css.png" alt="Stylesheet files">
-<h5 class="margin-top-35">Javascript files</h5>
-<p>The JS files are imported in the end of the <code>body</code> tag, and are splitted into 4 groups:</p>
-<ul>
-<li><b>Global:</b> framework files</li>
-<li><b>Theme:</b> theme files (dark/light, main and alternative colors)</li>
-<li><b>Util:</b> utility files (like theme switcher)</li>
-<li><b>Page:</b> files used only in current page</li>
-</ul>
-<img src="img/documentation/html-js.png" alt="Javascript files">
-</div>
-</div>
-</div>
-
-
-
-<div id="sources-and-credits" class="scrollspy margin-top-50">
-<div class="row no-gutter margin-bottom-0">
-<div class="col s12">
-<h4 class="main-text lighten-1">Sources and Credits</h4>
-<p>I've used the following images, icons or other files as listed.</p>
-<ul>
-<li>
-<a href="https://jquery.com/">jQuery</a>: jQuery is a fast, small, and feature-rich JavaScript library.
-</li>
-<li>
-<a href="http://materializecss.com/">Materialize</a>: A modern responsive front-end framework based on Material Design.
-</li>
-<li>
-<a href="https://fortawesome.github.io/Font-Awesome/">Font Awesome</a>: The iconic font and CSS toolkit.
-</li>
-<li>
-<a href="https://github.com/google/code-prettify">Javascript code prettifier</a>: An embeddable script that makes source-code snippets in HTML prettier.
-</li>
-<li>
-<a href="https://www.amcharts.com/">amcharts</a>: Charting library & maps. Where all data goes visual.
-</li>
-<li>
-<a href="https://www.amcharts.com/">DataTables</a>: Table plug-in for jQuery.
-</li>
-<li>
-<a href="https://github.com/rochal/jQuery-slimScroll">slimScroll</a>: small jQuery plugin that transforms any div into a scrollable area with a nice scrollbar.
-</li>
-<li>
-<a href="https://blueimp.github.io/jQuery-File-Upload/">jQuery File Upload</a>: File Upload widget with multiple file selection, drag&drop support, progress bars, validation and preview images, audio and video for jQuery.
-</li>
-<li>
-<a href="https://developers.google.com/maps/">Google Maps</a>: Customize maps with your own content and imagery.
-</li>
-<li>
-<a href="https://developers.google.com/charts/">Google Charts</a>: Interactive charts for browsers and mobile devices.
-</li>
-<li>
-<a href="https://select2.github.io/">Select2</a>: The jQuery replacement for select boxes.
-</li>
-</ul>
-</div>
-</div>
-</div>
+										<ul>
+											<li>
+												<a href="https://jquery.com/">jQuery</a>: jQuery is a fast, small, and feature-rich JavaScript library.
+											</li>
+											<li>
+												<a href="http://materializecss.com/">Materialize</a>: A modern responsive front-end framework based on Material Design.
+											</li>
+											<li>
+												<a href="https://fortawesome.github.io/Font-Awesome/">Font Awesome</a>: The iconic font and CSS toolkit.
+											</li>
+											<li>
+												<a href="https://github.com/google/code-prettify">Javascript code prettifier</a>: An embeddable script that makes source-code snippets in HTML prettier.
+											</li>
+											<li>
+												<a href="https://www.amcharts.com/">amcharts</a>: Charting library & maps. Where all data goes visual.
+											</li>
+											<li>
+												<a href="https://www.amcharts.com/">DataTables</a>: Table plug-in for jQuery.
+											</li>
+											<li>
+												<a href="https://github.com/rochal/jQuery-slimScroll">slimScroll</a>: small jQuery plugin that transforms any div into a scrollable area with a nice scrollbar.
+											</li>
+											<li>
+												<a href="https://blueimp.github.io/jQuery-File-Upload/">jQuery File Upload</a>: File Upload widget with multiple file selection, drag&drop support, progress bars, validation and preview images, audio and video for jQuery.
+											</li>
+											<li>
+												<a href="https://developers.google.com/maps/">Google Maps</a>: Customize maps with your own content and imagery.
+											</li>
+											<li>
+												<a href="https://developers.google.com/charts/">Google Charts</a>: Interactive charts for browsers and mobile devices.
+											</li>
+											<li>
+												<a href="https://select2.github.io/">Select2</a>: The jQuery replacement for select boxes.
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
 
 
+							<!-- ########## -->
+							<!-- Conclusion -->
+							<!-- ########## -->
+							<div id="conclusion" class="scrollspy margin-top-35">
+								<div class="row no-gutter">
+									<div class="col s12">
+										<h4 class="main-text lighten-1">Conclusion</h4>
+										<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme.</p>
+										<p>No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p>
+									</div>
+								</div>
+							</div>
+						</div>
 
-<div id="conclusion" class="scrollspy margin-top-35">
-<div class="row no-gutter">
-<div class="col s12">
-<h4 class="main-text lighten-1">Conclusion</h4>
-<p>Once again, thank you so much for purchasing this theme. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme.</p>
-<p>No guarantees, but I'll do my best to assist. If you have a more general question relating to the themes on ThemeForest, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="col hide-on-small-only m3 l2">
-<div class="pushpin-wrapper">
-<ul class="section table-of-contents">
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#instalation">Installation</a></li>
-<li><a href="#template-structure">Template Structure</a></li>
-<li><a href="#sources-and-credits">Sources and Credits</a></li>
-<li><a href="#conclusion">Conclusion</a></li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-</div>
-</main>
+						<div class="col hide-on-small-only m3 l2">
+							<div class="pushpin-wrapper">
+								<ul class="section table-of-contents">
+									<li><a href="#introduction">Introduction</a></li>
+									<li><a href="#instalation">Installation</a></li>
+									<li><a href="#template-structure">Template Structure</a></li>
+									<li><a href="#sources-and-credits">Sources and Credits</a></li>
+									<li><a href="#conclusion">Conclusion</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
 
-
-
-<footer class="page-footer">
-<div class="container">
-<div class="row">
-<div class="col l3 s12">
-<div class="brand-logo">
-<img src="img/logo.png" />
-<h5 class="valign"><b class="main-text">Aero</b> Admin</h5>
-</div>
-<p>A Material Design based admin template.</p>
-<p>You can use rows and columns here to organize your footer content.</p>
-</div>
-<div class="col l4 offset-l2 s12">
-<h5>Documentation</h5>
-<p>Please, in case of doubt <a href="documentation.html">read the documentation</a>. If the doubt still remains, don't hesitate to <a href="http://themeforest.net/user/lippep" target="_blank">contact me</a>. I'll be glad to help you or even listen to your suggestions. :)</p>
-</div>
-<div class="col l2 offset-l1 s12 footer-links">
-<h5>Links</h5>
-<ul>
-<li><a href="index-2.html">Dashboard</a></li>
-<li><a href="css_color.html">CSS</a></li>
-<li><a href="components_badges.html">Components</a></li>
-<li><a href="js_collapsible.html">Javascript</a></li>
-<li><a href="profile.html">Profile</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="footer-copyright">
-<div class="container">
-© 2016 Aero Admin, All rights reserved.
-</div>
-</div>
-</footer>
+            </div>
+        </main>
 
 
+        <!-- ###### -->
+        <!-- Footer -->
+        <!-- ###### -->
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l3 s12">
+                        <div class="brand-logo">
+                            <img src="img/logo.png"/>
+                            <h5 class="valign"><b class="main-text">Aero</b> Admin</h5>
+                        </div>
+                        <p>A Material Design based admin template.</p>
+                        <p>You can use rows and columns here to organize your footer content.</p>
+                    </div>
 
-<script src="bower_components/jquery/dist/jquery.js" type="text/javascript"></script>
-<script src="bower_components/Materialize/dist/js/materialize.js" type="text/javascript"></script>
-<script src="bower_components/code-prettify/src/prettify.js" type="text/javascript"></script>
-<script src="js/admin.js" type="text/javascript"></script>
+                    <div class="col l4 offset-l2 s12">
+                        <h5>Documentation</h5>
+                        <p>Please, in case of doubt <a href="documentation.html">read the documentation</a>. If the doubt still remains, don't hesitate to <a href="http://themeforest.net/user/lippep" target="_blank">contact me</a>. I'll be glad to help you or even listen to your suggestions. :)</p>
+                    </div>
+
+                    <div class="col l2 offset-l1 s12 footer-links">
+                        <h5>Links</h5>
+                        <ul>
+                            <li><a href="index.html">Dashboard</a></li>
+                            <li><a href="css_color.html">CSS</a></li>
+                            <li><a href="components_badges.html">Components</a></li>
+                            <li><a href="js_collapsible.html">Javascript</a></li>
+                            <li><a href="profile.html">Profile</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2016 Aero Admin, All rights reserved.
+                </div>
+            </div>
+        </footer>
 
 
-
-<script src="js/utils.js" type="text/javascript"></script>
-<script src="js/colors.js" type="text/javascript"></script>
-<script src="js/theme-switcher.js" type="text/javascript"></script>
-
-
-
-<script src="js/table-of-contents.js" type="text/javascript"></script>
-</body>
-
-<!-- Mirrored from demo.felippepuhle.com.br/aero/documentation.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 06 Oct 2017 14:57:55 GMT -->
+        <!-- ################## -->
+        <!-- Global javascripts -->
+        <!-- ################## -->
+        <script src="bower_components/jquery/dist/jquery.js" type="text/javascript"></script>
+        <script src="bower_components/Materialize/dist/js/materialize.js" type="text/javascript"></script>
+        <script src="bower_components/code-prettify/src/prettify.js" type="text/javascript"></script>
+        <script src="js/admin.js" type="text/javascript"></script>
+        <!-- ################ -->
+        <!-- Util javascripts -->
+        <!-- ################ -->
+        <script src="js/utils.js" type="text/javascript"></script>
+        <script src="js/colors.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            $('.dropdown-button').dropdown({
+                inDuration: 300,
+                outDuration: 225,
+                constrain_width: true, // Does not change width of dropdown to that of the activator
+                hover: true, // Activate on hover
+                gutter: 0, // Spacing from edge
+                belowOrigin: true, // Displays dropdown below the button
+                alignment: 'left' // Displays dropdown with edge aligned to the left of button
+            });
+        </script>
+        <script src="js/theme-switcher.js" type="text/javascript"></script>
+        <!-- ################ -->
+        <!-- Page javascripts -->
+        <!-- ################ -->
+        <script src="js/table-of-contents.js" type="text/javascript"></script>
+        
+    </body>
 </html>

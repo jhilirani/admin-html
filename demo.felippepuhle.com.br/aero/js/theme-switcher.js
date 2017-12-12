@@ -1,1 +1,248 @@
-!function(t){var e=function(){var e="";return t("#nav-content").length<1?e:(e+='<div class="title">Fixed Navbar</div>',e+='<div class="row">',e+='\t<div class="center-align">',e+='\t\t<div class="switch">',e+="\t\t\t<label>",e+="\t\t\t\tNo",e+='\t\t\t\t<input type="checkbox" name="fixedNavbar" />',e+='\t\t\t\t<span class="lever"></span>',e+="\t\t\t\tYes",e+="\t\t\t</label>",e+="\t\t</div>",e+="\t</div>",e+="</div>")},a=function(){var t="";return t+='<div class="title">Fluid</div>',t+='<div class="row">',t+='\t<div class="center-align">',t+='\t\t<div class="switch">',t+="\t\t\t<label>",t+="\t\t\t\tNo",t+='\t\t\t\t<input type="checkbox" name="themeStyle" />',t+='\t\t\t\t<span class="lever"></span>',t+="\t\t\t\tYes",t+="\t\t\t</label>",t+="\t\t</div>",t+="\t</div>",t+="</div>"},i=function(){var t="";return t+='<div class="title">Lights</div>',t+='<div class="row">',t+='\t<div class="center-align">',t+='\t\t<div class="switch">',t+="\t\t\t<label>",t+="\t\t\t\tOff",t+='\t\t\t\t<input type="checkbox" name="themeColor" />',t+='\t\t\t\t<span class="lever"></span>',t+="\t\t\t\tOn",t+="\t\t\t</label>",t+="\t\t</div>",t+="\t</div>",t+="</div>"},s=function(){var e="";return e+='<div class="title">Main Color</div>',e+='<div class="row">',t.Colors().materialColors().forEach(function(t){e+='<div class="change-'+t+' left" data-color="'+t+'">',e+='\t<input class="with-gap '+t+'" name="mainColor" type="radio" id="main-'+t+'" value="'+t+'" />',e+='\t<label for="main-'+t+'"></label>',e+="</div>"}),e+="</div>"},n=function(){var e="";return e+='<div class="title">Alternative Color</div>',e+='<div class="row">',t.Colors().materialColors().forEach(function(t){e+='<div class="change-'+t+' left" data-color="'+t+'">',e+='\t<input class="with-gap '+t+'" name="alternativeColor" type="radio" id="alternative-'+t+'" value="'+t+'" />',e+='\t<label for="alternative-'+t+'"></label>',e+="</div>"}),e+="</div>"},c=function(){if(!(t("#theme-switcher").length>0)){var c="";c+='<div id="theme-switcher">',c+='\t<div class="theme-button valign-wrapper classToggle" data-target="#theme-switcher" data-class="active">',c+='\t\t<i class="material-icons valign">menu</i>',c+="\t</div>",c+='\t<div class="theme-title">Theme Switcher</div>',c+='\t<div class="theme-content">',c+=e(),c+=a()+i(),c+=s()+n(),c+="\t</div>",c+="</div>",t("body").prepend(c)}},r=function(){t(document).on("change",'#theme-switcher [name="fixedNavbar"]',function(){var e=t(this);e.is(":checked")?t("#nav-content").addClass("navbar-fixed"):t("#nav-content").removeClass("navbar-fixed"),jQuery().TableOfContents&&t.TableOfContents().reload()}),t(document).on("change",'#theme-switcher [name="themeStyle"]',function(){var e=t(this);e.is(":checked")?t("main").removeClass("container"):t("main").addClass("container")}),t(document).on("change",'#theme-switcher [name="themeColor"]',function(){var e=t(this),a="";a=e.is(":checked")?"css/themes/light.css":"css/themes/dark.css",t("#ssThemeColor").attr("href",a)}),t(document).on("change",'#theme-switcher [name="mainColor"]',function(){t("#ssMainColor").attr("href","css/themes/main/"+t(this).val()+".css")}),t(document).on("change",'#theme-switcher [name="alternativeColor"]',function(){t("#ssAlternativeColor").attr("href","css/themes/alternative/"+t(this).val()+".css")})},l=function(t){var e,a,i,s;return t.match(/^rgb/)?(t=t.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/),e=t[1],i=t[2],a=t[3]):(t=+("0x"+t.slice(1).replace(t.length<5&&/./g,"$&$&")),e=t>>16,a=t>>8&255,i=255&t),s=Math.sqrt(.299*(e*e)+.587*(i*i)+.114*(a*a)),s>127.5},o=function(){t("#nav-content").hasClass("navbar-fixed")?t('#theme-switcher [name="fixedNavbar"]').attr("checked","true"):t('#theme-switcher [name="fixedNavbar"]').removeAttr("checked"),t("main").hasClass("container")?t('#theme-switcher [name="themeStyle"]').removeAttr("checked"):t('#theme-switcher [name="themeStyle"]').attr("checked","true"),l(t.Colors().theme())?t('#theme-switcher [name="themeColor"]').attr("checked","true"):t('#theme-switcher [name="themeColor"]').removeAttr("checked"),t('#theme-switcher [name="mainColor"]').each(function(){t.Colors().main()===t(this).css("background-color")&&t(this).attr("checked",!0)}),t('#theme-switcher [name="alternativeColor"]').each(function(){t.Colors().alternative()===t(this).css("background-color")&&t(this).attr("checked",!0)})};c(),r(),o()}(jQuery);
+(function ($) {
+
+  /* ------------- *
+   * Generate HTML *
+   * ------------- */
+  var generateFixedNavbarHtml = function() {
+		var themeHtml = '';
+		if($('#nav-content').length < 1) {
+			return themeHtml;
+		}
+
+		themeHtml += '<div class="title">Fixed Navbar</div>';
+		themeHtml += '<div class="row">';
+		themeHtml += '	<div class="center-align">';
+		themeHtml += '		<div class="switch">';
+		themeHtml += '			<label>';
+		themeHtml += '				No';
+		themeHtml += '				<input type="checkbox" name="fixedNavbar" />';
+		themeHtml += '				<span class="lever"></span>';
+		themeHtml += '				Yes';
+		themeHtml += '			</label>';
+		themeHtml += '		</div>';
+		themeHtml += '	</div>';
+		themeHtml += '</div>';
+
+		return themeHtml;
+  };
+
+	var generateThemeStyleHtml = function() {
+		var themeHtml = '';
+
+		themeHtml += '<div class="title">Fluid</div>';
+		themeHtml += '<div class="row">';
+		themeHtml += '	<div class="center-align">';
+		themeHtml += '		<div class="switch">';
+		themeHtml += '			<label>';
+		themeHtml += '				No';
+		themeHtml += '				<input type="checkbox" name="themeStyle" />';
+		themeHtml += '				<span class="lever"></span>';
+		themeHtml += '				Yes';
+		themeHtml += '			</label>';
+		themeHtml += '		</div>';
+		themeHtml += '	</div>';
+		themeHtml += '</div>';
+
+		return themeHtml;
+	};
+	var generateThemeColorHtml = function() {
+		var themeHtml = '';
+
+		themeHtml += '<div class="title">Lights</div>';
+		themeHtml += '<div class="row">';
+		themeHtml += '	<div class="center-align">';
+		themeHtml += '		<div class="switch">';
+		themeHtml += '			<label>';
+		themeHtml += '				Off';
+		themeHtml += '				<input type="checkbox" name="themeColor" />';
+		themeHtml += '				<span class="lever"></span>';
+		themeHtml += '				On';
+		themeHtml += '			</label>';
+		themeHtml += '		</div>';
+		themeHtml += '	</div>';
+		themeHtml += '</div>';
+
+		return themeHtml;
+	};
+	var generateMainColorHtml = function() {
+		var mainHtml = '';
+
+		mainHtml += '<div class="title">Main Color</div>';
+		mainHtml += '<div class="row">';
+		$.Colors().materialColors().forEach(function(color) {
+			mainHtml += '<div class="change-'+ color +' left" data-color="'+ color +'">';
+			mainHtml += '	<input class="with-gap '+ color +'" name="mainColor" type="radio" id="main-'+ color +'" value="'+ color +'" />';
+			mainHtml += '	<label for="main-'+ color +'"></label>';
+			mainHtml += '</div>';
+		});
+		mainHtml += '</div>';
+
+		return mainHtml;
+	};
+	var generateAlternativeColorHtml = function() {
+		var alternativeHtml = '';
+
+		alternativeHtml += '<div class="title">Alternative Color</div>';
+		alternativeHtml += '<div class="row">';
+		$.Colors().materialColors().forEach(function(color) {
+			alternativeHtml += '<div class="change-'+ color +' left" data-color="'+ color +'">';
+			alternativeHtml += '	<input class="with-gap '+ color +'" name="alternativeColor" type="radio" id="alternative-'+ color +'" value="'+ color +'" />';
+			alternativeHtml += '	<label for="alternative-'+ color +'"></label>';
+			alternativeHtml += '</div>';
+		});
+		alternativeHtml += '</div>';
+
+		return alternativeHtml;
+	};
+
+
+  /* ----------- *
+   * Append HTML *
+   * ----------- */
+	var appendHTML = function() {
+		if ($('#theme-switcher').length > 0) {
+			return;
+		}
+
+		var html = '';
+		html += '<div id="theme-switcher">';
+		html += '	<div class="theme-button valign-wrapper classToggle" data-target="#theme-switcher" data-class="active">';
+		html += '		<i class="material-icons valign">menu</i>';
+		html += '	</div>';
+		html += '	<div class="theme-title">Theme Switcher</div>';
+		html += '	<div class="theme-content">';
+		html += 		generateFixedNavbarHtml();
+		html += 		generateThemeStyleHtml() + generateThemeColorHtml();
+		html +=			generateMainColorHtml() + generateAlternativeColorHtml();
+		html += '	</div>';
+		html += '</div>'
+
+		$('body').prepend(html);
+	};
+
+
+  /* --------------- *
+   * Apply Listeners *
+   * --------------- */
+	var applyListeners = function() {
+		$(document).on('change', '#theme-switcher [name="fixedNavbar"]', function() {
+			var jThis = $(this);
+
+			if(jThis.is(':checked')) {
+				$('#nav-content').addClass('navbar-fixed');
+			} else {
+				$('#nav-content').removeClass('navbar-fixed');
+			}
+
+      if (jQuery().TableOfContents) {
+  		  $.TableOfContents().reload();
+      }
+		});
+
+		$(document).on('change', '#theme-switcher [name="themeStyle"]', function() {
+			var jThis = $(this);
+
+			if(jThis.is(':checked')) {
+				$('main').removeClass('container');
+			} else {
+				$('main').addClass('container');
+			}
+		});
+
+		$(document).on('change', '#theme-switcher [name="themeColor"]', function() {
+			var jThis = $(this);
+
+			var themeColor = '';
+			if(jThis.is(':checked')) {
+				themeColor = 'css/themes/light.css';
+			} else {
+				themeColor = 'css/themes/dark.css';
+			}
+
+			$('#ssThemeColor').attr('href', themeColor);
+		});
+
+		$(document).on('change', '#theme-switcher [name="mainColor"]', function() {
+			$('#ssMainColor').attr('href', 'css/themes/main/'+ $(this).val() +'.css');
+		});
+
+		$(document).on('change', '#theme-switcher [name="alternativeColor"]', function() {
+			$('#ssAlternativeColor').attr('href', 'css/themes/alternative/'+ $(this).val() +'.css');
+		});
+	};
+
+
+  /* -------------------------- *
+   * Verify if is a light color *
+   * -------------------------- */
+	var isLight = function(color) {
+		var r,b,g,hsp;
+
+		if (color.match(/^rgb/)) {
+			color = color.match(/^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/);
+			r = color[1];
+			g = color[2];
+			b = color[3];
+		} else {
+		      color = +("0x" + color.slice(1).replace(
+		      	color.length < 5 && /./g, '$&$&'
+		      ));
+		      r = color >> 16;
+		      b = color >> 8 & 255;
+		      g = color & 255;
+		}
+
+    hsp = Math.sqrt(
+    	0.299 * (r * r) +
+    	0.587 * (g * g) +
+    	0.114 * (b * b)
+    );
+
+		return hsp>127.5;
+	};
+
+
+  /* --------------- *
+   * Select defaults *
+   * --------------- */
+	var selectDefaults = function() {
+		if($('#nav-content').hasClass('navbar-fixed')) {
+			$('#theme-switcher [name="fixedNavbar"]').attr('checked', 'true');
+		} else {
+			$('#theme-switcher [name="fixedNavbar"]').removeAttr('checked');
+		}
+
+		if($('main').hasClass('container')) {
+			$('#theme-switcher [name="themeStyle"]').removeAttr('checked');
+		} else {
+			$('#theme-switcher [name="themeStyle"]').attr('checked', 'true');
+		}
+
+		if(isLight($.Colors().theme())) {
+			$('#theme-switcher [name="themeColor"]').attr('checked', 'true');
+		} else {
+			$('#theme-switcher [name="themeColor"]').removeAttr('checked');
+		}
+
+		$('#theme-switcher [name="mainColor"]').each(function() {
+			if($.Colors().main() === $(this).css('background-color')) {
+				$(this).attr('checked', true);
+			}
+		});
+
+		$('#theme-switcher [name="alternativeColor"]').each(function() {
+			if($.Colors().alternative() === $(this).css('background-color')) {
+				$(this).attr('checked', true);
+			}
+		});
+	};
+
+
+  /* ---- *
+   * Init *
+   * ---- */
+	appendHTML();
+	applyListeners();
+	selectDefaults();
+
+}(jQuery));
